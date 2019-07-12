@@ -22,12 +22,16 @@ def unique_houses(filename):
     file_data = open(filename)
 
     #split into list
+    #use with to put open file in the for loop
     for line in file_data:
         house_name = line.split("|")[2]
-        if house_name != '':
+        if house_name:
             houses.add(house_name)
 
+    file_data.close()
+
     return houses
+
 
 def sort_by_cohort(filename):
     """TODO: Return a list of all cohort lists, including ghosts but not instructors.
@@ -73,28 +77,9 @@ def sort_by_cohort(filename):
         elif student_cohort == 'G':
             ghosts.append(f"{first_name} {last_name}")
 
+    file_data.close()
+
     all_students = [fall_15, winter_16, spring_16, summer_16, ghosts]
-    return all_students
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return all_students
 
